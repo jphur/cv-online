@@ -25,7 +25,8 @@ npm run build
 - [Node.js](https://nodejs.org) - Entorno en tiempo de ejecución multiplataforma
 - [npm](https://www.npmjs.com) - Gestor de dependencias
 - [Vue](https://vuejs.org/) - Framework Javascript progresivo
-- [Bootstrap](https://getbootstrap.com) - Framework Html, Css y Javascript -[Swipper](https://swiperjs.com/) - Librería Javascript para crear carruseles
+- [Bootstrap](https://getbootstrap.com)
+- Framework Html, Css y Javascript -[Swipper](https://swiperjs.com/) - Librería Javascript para crear carruseles
 
 ## Versionado 📌
 
@@ -33,4 +34,4 @@ Usamos [SemVer](http://semver.org/) para el versionado.
 
 ## Autor ✒️
 
-- **Jorge Penadés Hurtado** -[jphur](https://github.com/jphur)
+- **Jorge Penadés Hurtado** - [jphur](https://github.com/jphur)
