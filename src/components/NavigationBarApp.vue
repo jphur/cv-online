@@ -3,7 +3,7 @@
   <nav class="navbar navbar-light navbar-expand-lg justify-content-center">
     <div class="container-fluid justify-content-end">
       <button
-        class="navbar-toggler me-1"
+        class="navbar-toggler mt-3 me-1"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"

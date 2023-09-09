@@ -72,7 +72,7 @@ onMounted(() => {
     <div
       class="header__greeting position-absolute z-2 text-white overflow-hidden"
     >
-      <h2 class="header__animated-cursor">¡Vamos a programar!</h2>
+      <p class="header__animated-cursor">¡Vamos a programar!</p>
     </div>
   </div>
 </template>

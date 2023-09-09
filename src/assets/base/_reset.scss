@@ -1,7 +1,7 @@
 img {
     width: 1.5rem;
     vertical-align: middle;
-    @include mv(500px){ width: 1.2rem; }
+    @include mv(1400px) { width: 1.2rem; }
 }
 
 a {

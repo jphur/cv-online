@@ -52,6 +52,6 @@ main {
 }
 
 @include mv(768px) {
-    .heading-primary { font-size: 2rem }
-    .heading-secondary { font-size: 1rem }
+    .heading-primary { font-size: 1.5rem }
+    .heading-secondary { font-size: .8rem }
 }

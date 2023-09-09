@@ -169,13 +169,15 @@ const others = [
 <style lang="scss" scoped>
 .codes {
   &__box {
-    width: 15vw;
+    width: 20vw;
+    max-width: 20rem;
     height: 20rem;
   }
 
   @media (max-width: 1400px) {
     &__box {
       width: 20vw;
+      height: 18rem;
     }
   }
 
@@ -201,10 +203,10 @@ const others = [
     }
 
     &__box {
-      width: 60vw;
+      width: 80vw;
       transform: skewX(0deg);
       height: 17rem;
-      max-width: 25rem;
+      max-width: 20rem;
     }
   }
 }
