@@ -3,6 +3,7 @@ import { onMounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 import BoxApp from "./BoxApp.vue";
+import StarApp from "./starApp.vue";
 
 onMounted(() => {
   const swiper = new Swiper("#swiper", {
@@ -23,26 +24,6 @@ onMounted(() => {
     },
   });
 });
-const backend = [
-  { name: "Nodejs", icon: "node-js", stars: 4 },
-  { name: "Typescript", icon: "typescript", stars: 2 },
-  { name: "Php", icon: "php", stars: 3 },
-  { name: "Java", icon: "java", stars: 2, halfStar: true },
-];
-const frontend = [
-  { name: "Javascript", icon: "javascript", stars: 4, halfStar: true },
-  { name: "Vue", icon: "vue", stars: 2 },
-  { name: "Css", icon: "css", stars: 3, halfStar: true },
-  { name: "Sass", icon: "sass", stars: 2, halfStar: true },
-  { name: "Bootstrap", icon: "bootstrap", stars: 2, halfStar: true },
-];
-const others = [
-  { name: "Sql", icon: "database", stars: 3 },
-  { name: "PL/SQL", icon: "database", stars: 2 },
-  { name: "docker", icon: "docker", stars: 1 },
-  { name: "Git", icon: "git", stars: 2, halfStar: true },
-  { name: "Wordpress", icon: "wordpress", stars: 3 },
-];
 </script>
 <template>
   <section class="codes" id="codes">
@@ -61,25 +42,25 @@ const others = [
                 >
                   <template #content>
                     <ul class="codes__list">
-                      <li
-                        class="codes__list-item mb-3"
-                        v-for="(language, index) in backend"
-                        :key="index"
-                      >
-                        <img
-                          :src="`svg/${language.icon}.svg`"
-                          :alt="language.icon"
-                        />
-                        {{ language.name }}
-                        <img
-                          v-for="(star, index) in language.stars"
-                          :key="index"
-                          :src="`svg/star.svg`"
-                        />
-                        <img
-                          v-if="language.halfStar"
-                          :src="`svg/star-half.svg`"
-                        />
+                      <li class="codes__list-item mb-3">
+                        <img :src="`svg/node-js.svg`" alt="node-js" />
+                        Nodejs
+                        <StarApp :full-stars="4" />
+                      </li>
+                      <li class="codes__list-item mb-3">
+                        <img :src="`svg/typescript.svg`" alt="typescript" />
+                        Nodejs
+                        <StarApp :full-stars="2" />
+                      </li>
+                      <li class="codes__list-item mb-3">
+                        <img :src="`svg/php.svg`" alt="php" />
+                        Php
+                        <StarApp :full-stars="3" />
+                      </li>
+                      <li class="codes__list-item mb-3">
+                        <img :src="`svg/java.svg`" alt="java" />
+                        Java
+                        <StarApp :full-stars="2" :half-star="true" />
                       </li>
                     </ul>
                   </template>
@@ -94,25 +75,30 @@ const others = [
                 >
                   <template #content>
                     <ul class="codes__list">
-                      <li
-                        class="codes__list-item mb-3"
-                        v-for="(language, index) in frontend"
-                        :key="index"
-                      >
-                        <img
-                          :src="`svg/${language.icon}.svg`"
-                          :alt="language.icon"
-                        />
-                        {{ language.name }}
-                        <img
-                          v-for="(star, index) in language.stars"
-                          :key="index"
-                          :src="`svg/star.svg`"
-                        />
-                        <img
-                          v-if="language.halfStar"
-                          :src="`svg/star-half.svg`"
-                        />
+                      <li class="codes__list-item mb-3">
+                        <img :src="`svg/javascript.svg`" alt="javascript" />
+                        Javascript
+                        <StarApp :full-stars="4" :half-star="true" />
+                      </li>
+                      <li class="codes__list-item mb-3">
+                        <img :src="`svg/vue.svg`" alt="vue" />
+                        Vue
+                        <StarApp :full-stars="3" />
+                      </li>
+                      <li class="codes__list-item mb-3">
+                        <img :src="`svg/css.svg`" alt="css" />
+                        Css
+                        <StarApp :full-stars="3" :half-star="true" />
+                      </li>
+                      <li class="codes__list-item mb-3">
+                        <img :src="`svg/sass.svg`" alt="sass" />
+                        Sass
+                        <StarApp :full-stars="2" :half-star="true" />
+                      </li>
+                      <li class="codes__list-item mb-3">
+                        <img :src="`svg/bootstrap.svg`" alt="bootstrap" />
+                        Bootstrap
+                        <StarApp :full-stars="2" :half-star="true" />
                       </li>
                     </ul>
                   </template>
@@ -127,25 +113,30 @@ const others = [
                 >
                   <template #content>
                     <ul class="codes__list">
-                      <li
-                        class="codes__list-item mb-3"
-                        v-for="(language, index) in others"
-                        :key="index"
-                      >
-                        <img
-                          :src="`svg/${language.icon}.svg`"
-                          :alt="language.icon"
-                        />
-                        {{ language.name }}
-                        <img
-                          v-for="(star, index) in language.stars"
-                          :key="index"
-                          :src="`svg/star.svg`"
-                        />
-                        <img
-                          v-if="language.halfStar"
-                          :src="`svg/star-half.svg`"
-                        />
+                      <li class="codes__list-item mb-3">
+                        <img :src="`svg/database.svg`" alt="database" />
+                        Sql
+                        <StarApp :full-stars="3" />
+                      </li>
+                      <li class="codes__list-item mb-3">
+                        <img :src="`svg/testing.svg`" alt="testing" />
+                        Vitest
+                        <StarApp :full-stars="2" />
+                      </li>
+                      <li class="codes__list-item mb-3">
+                        <img :src="`svg/docker.svg`" alt="docker" />
+                        Docker
+                        <StarApp :full-stars="1" />
+                      </li>
+                      <li class="codes__list-item mb-3">
+                        <img :src="`svg/git.svg`" alt="git" />
+                        Git
+                        <StarApp :full-stars="2" :half-star="true" />
+                      </li>
+                      <li class="codes__list-item mb-3">
+                        <img :src="`svg/wordpress.svg`" alt="wordpress" />
+                        Wordpress
+                        <StarApp :full-stars="3" />
                       </li>
                     </ul>
                   </template>

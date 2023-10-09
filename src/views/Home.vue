@@ -5,14 +5,11 @@ import Skills from "../components/Skills.vue";
 import Languages from "../components/Languages.vue";
 </script>
 <template>
-    <Header />
+  <Header />
   <main>
     <AboutMe />
     <Skills />
     <Languages />
   </main>
- 
 </template>
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

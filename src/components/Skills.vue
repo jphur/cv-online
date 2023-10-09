@@ -21,7 +21,7 @@ import BoxApp from "./BoxApp.vue";
                   </dt>
                   <dd class="skills__text">
                     Desarrollo web con Node.js, Loopback 3, Vue, Quasar, MariaDB
-                    y Jest.
+                    y Vitest.
                   </dd>
                   <dt class="content-subtitle mb-2">
                     Desarrollador Web en AZA logisitics Marzo-Julio 2023
@@ -54,7 +54,7 @@ import BoxApp from "./BoxApp.vue";
                 <ul>
                   <li class="skills__items">Desarrollo de aplicaciones Web</li>
                   <li class="skills__items">
-                    Administración de sistemas informáicos en red
+                    Administración de sistemas informáticos en red
                   </li>
                   <li class="skills__items">Bachillerato científico</li>
                 </ul>

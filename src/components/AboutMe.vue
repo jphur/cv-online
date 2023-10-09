@@ -25,11 +25,11 @@ import BoxApp from "./BoxApp.vue";
                 Me encanta la programación, por ello, me mantengo en constante
                 aprendizaje. Tengo formación tanto en programación, como en
                 administración de sistemas. Actualmente, estoy aprendiendo a
-                usar Vue y Docker.
+                usar Vue, Vue router y Pinia.
               </p>
               <p class="about-me__text">
-                Además, de manera adicional, tengo interés en la administración
-                en bases de datos, redes y sistemas.
+                Además, de manera adicional, tengo interés en el lenguaje de
+                procedimientos e inteligencia artificial.
               </p>
             </template>
           </BoxApp>
