@@ -49,7 +49,7 @@ onMounted(() => {
                       </li>
                       <li class="codes__list-item mb-3">
                         <img :src="`svg/typescript.svg`" alt="typescript" />
-                        Nodejs
+                        Typescript
                         <StarApp :full-stars="2" />
                       </li>
                       <li class="codes__list-item mb-3">
