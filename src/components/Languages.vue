@@ -3,7 +3,7 @@ import { onMounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 import BoxApp from "./BoxApp.vue";
-import StarApp from "./starApp.vue";
+import StarApp from "./StarApp.vue";
 
 onMounted(() => {
   const swiper = new Swiper("#swiper", {
