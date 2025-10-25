@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "dev:docker": "docker compose up --build",
+    "dev:docker:detach": "docker compose up --build -d",
+    "docker:stop": "docker compose down",
     "build": "vite build",
     "preview": "vite preview"
   },
