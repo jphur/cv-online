@@ -7,11 +7,11 @@
     font-size: 1.35rem!important;
     font-weight: 600;
     color: $white!important; 
-    &:active { color: $light-green!important }
+    &:active {/*  color: $light-green!important */ }
 
     @include mv(1200px) { font-size: 1.1rem }
 
-    @media screen and (min-width: 992px) { &:hover { color: $light-green!important } }
+    @media screen and (min-width: 992px) { &:hover { /* color: $light-green!important */ } }
 
     @include mv() { font-size: .95rem }
 }

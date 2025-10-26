@@ -1,163 +1,198 @@
 <script setup>
-import BoxApp from "./BoxApp.vue";
+const skills = [
+  {
+    category: "Principales",
+    items: [
+      { name: "Node.js", level: 90 },
+      { name: "Vue.js", level: 90 },
+      { name: "MySQL / MariaDB", level: 80 },
+      { name: "Prompts / IA", level: 80 },
+      { name: "Python", level: 75 },
+    ],
+  },
+  {
+    category: "Backend / APIs",
+    items: [
+      { name: "Loopback 3", level: 80 },
+      { name: "FastAPI", level: 75 },
+      { name: "Express", level: 75 },
+      { name: "SQL Server", level: 70 },
+    ],
+  },
+  {
+    category: "Testing / DevOps",
+    items: [
+      { name: "Cypress", level: 70 },
+      { name: "Vitest / Jest", level: 70 },
+      { name: "Docker", level: 60 },
+      { name: "Git", level: 85 },
+    ],
+  },
+];
 </script>
+
 <template>
   <section class="skills" id="skills">
-    <h2 class="skills__title titles">Conocimientos y Experiencias</h2>
-    <div class="container mx-auto">
-      <div class="row">
-        <div class="col">
-          <div class="skills__boxes-container">
-            <BoxApp
-              :title="'experiencias'.toUpperCase()"
-              class="skills__experiences-box"
-              color="light-green"
-              icon="display"
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 col-xl-9">
+          <h2 class="section-title">
+            <span class="section-number">03.</span> Conocimientos
+          </h2>
+
+          <div class="skills__grid">
+            <div
+              v-for="(category, index) in skills"
+              :key="index"
+              class="skills__category"
             >
-              <template #content>
-                <dl>
-                  <dt class="content-subtitle mb-2">
-                    Desarrollador Web en Verdnatura desde Julio de 2023
-                  </dt>
-                  <dd class="skills__text">
-                    Desarrollo web con Node.js, Loopback 3, Vue, Quasar, MariaDB
-                    y Vitest.
-                  </dd>
-                  <dt class="content-subtitle mb-2">
-                    Desarrollador Web en AZA logisitics Marzo-Julio 2023
-                  </dt>
-                  <dd class="skills__text">
-                    Desarrollo web con Node.js, Express.js, Typescript, Sass,
-                    Bootstrap 5 y Microsoft SQL SERVER.
-                  </dd>
-                  <dt class="content-subtitle mb-2">
-                    Desarrollador frontend en Essedi Julio-Agosto 2022
-                  </dt>
-                  <dd class="skills__text">
-                    Desarrollo en CSS, SASS, Javascript y Wordpress.
-                  </dd>
-                  <dt class="content-subtitle mb-2">
-                    Desarrollador Wordpress en Apunts Informática Diciembre
-                    2021- Junio 2022
-                  </dt>
-                  <dd class="skills__text">Desarrollo en CSS y Wordpress.</dd>
-                </dl>
-              </template>
-            </BoxApp>
-            <BoxApp
-              :title="'educación'.toUpperCase()"
-              class="skills__education-box"
-              color="green"
-              icon="graduation-cap"
-            >
-              <template #content>
-                <ul>
-                  <li class="skills__items">Desarrollo de aplicaciones Web</li>
-                  <li class="skills__items">
-                    Administración de sistemas informáticos en red
-                  </li>
-                  <li class="skills__items">Bachillerato científico</li>
-                </ul>
-              </template>
-            </BoxApp>
-            <BoxApp
-              :title="'idiomas'.toUpperCase()"
-              class="skills__languages-box"
-              color="brown"
-              icon="language"
-            >
-              <template #content>
-                <ul>
-                  <li class="skills__items">Español: Nativo</li>
-                  <li class="skills__items">Inglés: Intermedio</li>
-                  <li class="skills__items">Valenciano: Nativo</li>
-                </ul>
-              </template>
-            </BoxApp>
+              <h3 class="skills__category-title">{{ category.category }}</h3>
+              <div class="skills__items">
+                <div
+                  v-for="skill in category.items"
+                  :key="skill.name"
+                  class="skills__item"
+                >
+                  <div class="skills__item-header">
+                    <span class="skills__item-name">{{ skill.name }}</span>
+                    <span class="skills__item-level">{{ skill.level }}%</span>
+                  </div>
+                  <div class="skills__bar">
+                    <div
+                      class="skills__bar-fill"
+                      :style="{ width: skill.level + '%' }"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
+
 <style lang="scss" scoped>
 .skills {
-  &__boxes-container {
-    display: grid;
-    grid-template-areas: "experiences education" "experiences languages";
-    grid-template-columns: 1fr 0.8fr;
+  min-height: 100vh;
+  background-color: $dark-navy;
+  padding: 100px 50px;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 100px 25px;
   }
 
-  &__text {
-    margin-bottom: 2rem;
-    letter-spacing: 0.1rem;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  &__category {
+    background-color: $light-navy;
+    padding: 30px;
+    border-radius: 4px;
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  &__category-title {
+    color: $lightest-slate;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: $green;
+    }
   }
 
   &__items {
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
-  &__experiences-box {
-    grid-area: experiences;
-  }
-
-  &__experiences-box[data-inviewport] {
-    opacity: 0;
-  }
-
-  &__experiences-box[data-inviewport].is-inViewport {
-    animation: moveInLeft 3s;
-    animation-fill-mode: forwards;
-  }
-
-  &__education-box {
-    grid-area: education;
-  }
-
-  &__education-box[data-inviewport] {
-    opacity: 0;
-  }
-
-  &__education-box[data-inviewport].is-inViewport {
-    animation: moveInTop 3s;
-    animation-fill-mode: forwards;
-  }
-
-  &__languages-box {
-    grid-area: languages;
-  }
-
-  &__languages-box[data-inviewport] {
-    opacity: 0;
-  }
-
-  &__languages-box[data-inviewport].is-inViewport {
-    animation: moveInRight 3s;
-    animation-fill-mode: forwards;
-  }
-
-  @media (max-width: 1000px) {
-    &__boxes-container {
-      grid-template-areas: "experiences" "education" "languages";
-      grid-template-columns: 1fr;
+  &__item {
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
     }
 
-    &__experiences-box[data-inviewport].is-inViewport {
-      animation: moveInTop 2s;
-      animation-fill-mode: forwards;
+    &-name {
+      color: $light-slate;
+      font-size: 14px;
+      font-family: "Roboto Mono", monospace;
     }
 
-    &__education-box[data-inviewport].is-inViewport {
-      animation: moveInTop 2s;
-      animation-delay: 0.5s;
-      animation-fill-mode: forwards;
+    &-level {
+      color: $green;
+      font-size: 12px;
+      font-family: "Roboto Mono", monospace;
     }
+  }
 
-    &__languages-box[data-inviewport].is-inViewport {
-      animation: moveInTop 2s;
-      animation-fill-mode: forwards;
-      animation-delay: 1s;
+  &__bar {
+    width: 100%;
+    height: 6px;
+    background-color: $lightest-navy;
+    border-radius: 3px;
+    overflow: hidden;
+
+    &-fill {
+      height: 100%;
+      background-color: $green;
+      border-radius: 3px;
+      transition: width 1s ease-out;
     }
   }
 }
+
+.section-title {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  color: $lightest-slate;
+  font-size: clamp(26px, 5vw, 32px);
+  font-weight: 700;
+  margin-bottom: 40px;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: 1px;
+    margin-left: 20px;
+    background-color: $lightest-navy;
+
+    @media (max-width: 768px) {
+      max-width: 100px;
+    }
+  }
+}
+
+.section-number {
+  color: $green;
+  font-family: "Roboto Mono", monospace;
+  font-size: clamp(16px, 3vw, 20px);
+  font-weight: 400;
+  margin-right: 10px;
+}
 </style>
+

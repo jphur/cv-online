@@ -1,133 +1,204 @@
 <script setup>
-import { onMounted } from "vue";
-import NavigationBarApp from "./NavigationBarApp.vue";
+import { ref, onMounted } from "vue";
+
+// Header only renders the hero content now. NavigationBarApp is rendered
+// at the top of the page (in `Home.vue`).
+
+const greeting = ref("");
+const typingDone = ref(false);
+const _greetingTarget = "Desarrollador Full Stack";
+
+function typeWriter(textRef, target, speed = 70) {
+  let i = 0;
+  const timer = setInterval(() => {
+    textRef.value = target.slice(0, i + 1);
+    i++;
+    if (i >= target.length) {
+      clearInterval(timer);
+      // mark typing finished so we can hide the cursor
+      typingDone.value = true;
+    }
+  }, speed);
+}
+
 onMounted(() => {
-  window.addEventListener("resize", responsiveMatrix);
-
-  /**
-   * Pinta el lienzo y pinta la lluvia de letras
-   */
-  function draw() {
-    ctx.fillStyle = "rgba(9, 107, 114, .1)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < drops.length; i++) {
-      let text = letters[Math.floor(Math.random() * letters.length)];
-      ctx.fillStyle = "#0f0";
-      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-      drops[i]++;
-
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
-        drops[i] = 0;
-      }
-    }
-  }
-
-  /**
-   * Cambiamos la altura y el ancho del lienzo y el ancho de las columnas
-   * @param {Int} height
-   */
-  function responsiveMatrix() {
-    sizeHeight = header.offsetHeight;
-    canvas.width = header.offsetWidth;
-    canvas.height = sizeHeight;
-    columns = canvas.width / fontSize;
-    for (let i = 0; i < columns; i++) {
-      drops[i] = 1;
-    }
-  }
-
-  const canvas = document.querySelector(".header__canvas");
-  const ctx = canvas.getContext("2d");
-  const header = document.querySelector(".header");
-  canvas.width = header.offsetWidth;
-  let sizeHeight = header.offsetHeight;
-  canvas.height = sizeHeight;
-
-  let letters =
-    "ABCDEFGHIJKLMNOPQRSTUVXYZ日ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍｦｲｸｺｿﾁﾄﾉﾌﾔﾖﾙﾚﾛﾝ0123456789Z";
-  letters = letters.split("");
-
-  const fontSize = 10;
-  let columns = canvas.width / fontSize;
-
-  let drops = [];
-  for (let i = 0; i < columns; i++) drops[i] = 1;
-
-  setInterval(draw, 33);
+  // start typewriter for the small greeting
+  typeWriter(greeting, _greetingTarget, 70);
 });
 </script>
+
 <template>
-  <div class="header position-relative">
-    <NavigationBarApp />
-    <canvas class="header__canvas position-absolute top-0 left-0 z-1"></canvas>
-    <div class="header__text-box text-center position-absolute z-2">
-      <h1 class="heading-primary">Jorge Penadés</h1>
-      <h2 class="heading-secondary">Desarrollador Web</h2>
-    </div>
-    <img
-      class="header__icon position-absolute z-2"
-      src="/images/computer.png"
-      alt="hacker-icon"
-    />
-    <div
-      class="header__greeting position-absolute z-2 text-white overflow-hidden"
-    >
-      <p class="header__animated-cursor">¡Vamos a programar!</p>
+  <div class="header">
+    <div class="header__content">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <p :class="['header__greeting', 'typewriter', { 'typewriter--done': typingDone }]">{{ greeting }}</p>
+            <h1 class="header__name animate-fade-down" style="animation-delay:0.25s">
+              Jorge Penadés Hurtado
+            </h1>
+            <h2 class="header__tagline animate-fade-up" style="animation-delay:0.45s">
+              Full Stack Web developer — IA & Prompt Engineering
+            </h2>
+            <!-- CTA eliminado según solicitud (círculo borrado) -->
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
+
 <style lang="scss" scoped>
 .header {
-  height: 80dvh;
-  background-color: $green;
+  min-height: 100vh;
+  background-color: $dark-navy;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-top: 80px; // leave space for the fixed navbar
 
-  &__text-box {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  &__content {
+    width: 100%;
+    padding: 0 50px;
+    text-align: center; // center the description and headings
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-  &__icon {
-    top: 52%;
-    left: 75%;
-    transform: translate(-50%, -50%);
-    width: 10rem;
-    animation: fade;
-    animation-duration: 5s;
+    @media (max-width: 768px) {
+      padding: 0 25px;
+    }
   }
 
   &__greeting {
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: typing 2.5s steps(26), caret 1s steps(1) infinite;
-    width: 14rem;
-    min-height: 2rem;
-    border-right: 0.05em solid $white;
-    white-space: nowrap;
+    color: $green;
+    font-family: "Roboto Mono", monospace;
+    font-size: clamp(14px, 5vw, 16px);
+    margin-bottom: 20px;
   }
 
-  &__animated-cursor {
-    font-size: 1.5rem;
-    font-weight: initial;
+  &__name {
+    color: $lightest-slate;
+    font-size: clamp(40px, 8vw, 80px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    max-width: 100%;
+    text-align: center;
   }
 
-  @include mv(1200px) {
-    &__icon {
-      width: 8rem;
-    }
+  &__tagline {
+    color: $slate;
+    font-size: clamp(30px, 6vw, 60px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    max-width: 100%;
+    text-align: center;
   }
 
-  @include mv(1000px) {
-    height: 50dvh;
-
-    &__icon {
-      display: none;
-    }
+  &__description {
+    color: $slate;
+    max-width: 540px;
+    line-height: 1.8;
+    margin: 0 auto 50px auto; // center block
   }
 
-  @include mv(685px) {
-    height: 75dvh;
+  &__highlight {
+    color: $green;
   }
+
+  /* CTA removed: styles for .header__cta deleted per user request */
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.animate-fade-in-delay-1 {
+  animation: fadeIn 1s ease-in-out 0.2s backwards;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fadeIn 1s ease-in-out 0.4s backwards;
+}
+
+.animate-fade-in-delay-3 {
+  animation: fadeIn 1s ease-in-out 0.6s backwards;
+}
+
+.animate-fade-in-delay-4 {
+  animation: fadeIn 1s ease-in-out 0.8s backwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Fade down (appear from above)
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-down {
+  animation: fadeDown 0.9s ease-in-out both;
+}
+
+// Fade up (appear from below)
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.9s ease-in-out both;
+}
+
+/* Simple typewriter cursor effect */
+.typewriter {
+  display: inline-block;
+  position: relative;
+}
+
+.typewriter::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 0.1em;
+  width: 2px;
+  height: 1.1em;
+  background: $green;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* hide cursor after typing finished */
+.typewriter.typewriter--done::after {
+  display: none;
 }
 </style>
