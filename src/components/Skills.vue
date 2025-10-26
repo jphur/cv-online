@@ -33,43 +33,39 @@ const skills = [
 
 <template>
   <section class="skills" id="skills">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-10 col-xl-9">
-          <h2 class="section-title">
-            <span class="section-number">03.</span> Conocimientos
-          </h2>
+    <div class="skills__container">
+      <h2 class="section-title">
+        <span class="section-number">04.</span> Conocimientos
+      </h2>
 
-          <div class="skills__grid">
-            <div
-              v-for="(category, index) in skills"
-              :key="index"
-              class="skills__category"
-            >
-              <h3 class="skills__category-title">{{ category.category }}</h3>
-              <div class="skills__items">
-                <div
-                  v-for="skill in category.items"
-                  :key="skill.name"
-                  class="skills__item"
-                >
-                  <div class="skills__item-header">
-                    <span class="skills__item-name">{{ skill.name }}</span>
-                    <span class="skills__item-level">{{ skill.level }}%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <div
-                      class="skills__bar-fill"
-                      :style="{ width: skill.level + '%' }"
-                    ></div>
-                  </div>
+      <div class="skills__grid">
+          <div
+            v-for="(category, index) in skills"
+            :key="index"
+            class="skills__category"
+          >
+            <h3 class="skills__category-title">{{ category.category }}</h3>
+            <div class="skills__items">
+              <div
+                v-for="skill in category.items"
+                :key="skill.name"
+                class="skills__item"
+              >
+                <div class="skills__item-header">
+                  <span class="skills__item-name">{{ skill.name }}</span>
+                  <span class="skills__item-level">{{ skill.level }}%</span>
+                </div>
+                <div class="skills__bar">
+                  <div
+                    class="skills__bar-fill"
+                    :style="{ width: skill.level + '%' }"
+                  ></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   </section>
 </template>
 
@@ -85,9 +81,28 @@ const skills = [
     padding: 100px 25px;
   }
 
+  @media (max-width: 992px) {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(240px, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
   &__grid {
+    /* Use grid so cards align properly in rows (3 columns on desktop, responsive to 1 column on mobile) */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, minmax(280px, 320px));
+    justify-content: center;
     gap: 30px;
   }
 
@@ -96,6 +111,8 @@ const skills = [
     padding: 30px;
     border-radius: 4px;
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    /* let grid define the width; remove fixed width */
 
     &:hover {
       transform: translateY(-5px);

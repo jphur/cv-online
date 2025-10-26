@@ -12,84 +12,64 @@ const skills = [
 </script>
 
 <template>
-  <section class="about-me" id="about-me">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-10 col-xl-9">
-          <h2 class="section-title">
-            <span class="section-number">01.</span> Sobre mí
-          </h2>
+  <div class="about-me" id="about-me">
+    <h2 class="section-title">
+      <span class="section-number">01.</span> Sobre mí
+    </h2>
 
-          <div class="about-me__content">
-            <div class="about-me__text">
-              <p>
-                Desarrollador Full Stack con 2 años de experiencia en Node.js
-                y Vue.js, enfocado en desarrollo web y soluciones con IA.
-              </p>
+    <div class="about-me__content">
+          <div class="about-me__text">
+            <p>
+              Desarrollador Full Stack con 2 años de experiencia en Node.js
+              y Vue.js, enfocado en desarrollo web y soluciones con IA.
+            </p>
 
-              <p>
-                Trabajé en la migración completa de un ERP de jardinería de
-                AngularJS a Vue.js, modernizando código legado. Actualmente
-                sigo desarrollando nuevas funcionalidades para este sistema
-                en <a href="https://verdnatura.es" target="_blank" class="highlight-link">Verdnatura</a>.
-              </p>
+            <p>
+              Trabajé en la migración completa de un ERP de jardinería de
+              AngularJS a Vue.js, modernizando código legado. Actualmente
+              sigo desarrollando nuevas funcionalidades para este sistema
+              en <a href="https://verdnatura.es" target="_blank" class="highlight-link">Verdnatura</a>.
+            </p>
 
-              <p>
-                Además, aplico Prompt Engineering e IA en casos prácticos:
-                desarrollé un sistema de extracción y clasificación contable de
-                facturas usando embeddings (Plan General Contable Español) y
-                automatizé la creación de tickets SAT usando IA.
-              </p>
+            <p>
+              Además, aplico Prompt Engineering e IA en casos prácticos:
+              desarrollé un sistema de extracción y clasificación contable de
+              facturas usando embeddings (Plan General Contable Español) y
+              automatizé la creación de tickets SAT usando IA.
+            </p>
 
-              <p>Me gusta cuidar los detalles y buscar soluciones limpias en cada proyecto.</p>
+            <p>Me gusta cuidar los detalles y buscar soluciones limpias en cada proyecto.</p>
 
-              <ul class="about-me__skills">
-                <li v-for="skill in skills" :key="skill">
-                  <q-icon name="chevron_right" color="green" size="xs" />
-                  {{ skill }}
-                </li>
-              </ul>
-            </div>
-
-            <div class="about-me__image-wrapper">
-              <q-img
-                src="/images/me.jpg"
-                alt="Jorge Penadés"
-                class="about-me__image"
-                ratio="1"
-              >
-                <div class="about-me__image-overlay"></div>
-              </q-img>
-            </div>
+            <ul class="about-me__skills">
+              <li v-for="skill in skills" :key="skill">
+                <q-icon name="chevron_right" color="green" size="xs" />
+                {{ skill }}
+              </li>
+            </ul>
           </div>
+
+          <div class="about-me__image-wrapper">
+            <q-img
+              src="/images/me.jpg"
+              alt="Jorge Penadés"
+              class="about-me__image"
+              ratio="1"
+            >
+              <div class="about-me__image-overlay"></div>
+            </q-img>
         </div>
       </div>
     </div>
-  </section>
 </template>
 
 <style lang="scss" scoped>
 .about-me {
-  min-height: 100vh;
-  background-color: $dark-navy;
-  padding: 100px 50px;
-  display: flex;
-  align-items: center;
-
-  @media (max-width: 768px) {
-    padding: 100px 25px;
-  }
+  width: 100%;
 
   &__content {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 50px;
-    align-items: flex-start;
-
-    @media (max-width: 992px) {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
   }
 
   &__text {
@@ -142,14 +122,7 @@ const skills = [
   }
 
   &__image-wrapper {
-    position: relative;
-    max-width: 300px;
-    margin: 0 auto;
-    border-radius: 4px;
-
-    @media (max-width: 992px) {
-      max-width: 250px;
-    }
+    display: none; // Ocultar imagen para simplificar layout
 
     &::before {
       content: "";

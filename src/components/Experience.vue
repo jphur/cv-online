@@ -63,60 +63,56 @@ const experiences = {
 
 <template>
   <section class="experience" id="experience">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-10 col-xl-9">
-          <h2 class="section-title">
-            <span class="section-number">02.</span> Dónde he trabajado
-          </h2>
+    <div class="experience__container">
+      <h2 class="section-title">
+        <span class="section-number">03.</span> Dónde he trabajado
+      </h2>
 
-          <div class="experience__content">
-            <q-tabs
-              v-model="selectedTab"
-              vertical
-              class="experience__tabs"
-              active-color="green"
-              indicator-color="green"
-            >
-              <q-tab
-                v-for="(exp, key) in experiences"
-                :key="key"
-                :name="key"
-                :label="exp.company"
-                class="experience__tab"
-              />
-            </q-tabs>
+      <div class="experience__content">
+          <q-tabs
+            v-model="selectedTab"
+            vertical
+            class="experience__tabs"
+            active-color="green"
+            indicator-color="green"
+          >
+            <q-tab
+              v-for="(exp, key) in experiences"
+              :key="key"
+              :name="key"
+              :label="exp.company"
+              class="experience__tab"
+            />
+          </q-tabs>
 
-            <q-tab-panels
-              v-model="selectedTab"
-              animated
-              class="experience__panels"
+          <q-tab-panels
+            v-model="selectedTab"
+            animated
+            class="experience__panels"
+          >
+            <q-tab-panel
+              v-for="(exp, key) in experiences"
+              :key="key"
+              :name="key"
+              class="experience__panel"
             >
-              <q-tab-panel
-                v-for="(exp, key) in experiences"
-                :key="key"
-                :name="key"
-                class="experience__panel"
-              >
-                <h3 class="experience__role">
-                  {{ exp.role }}
-                  <span class="experience__company">
-                    @ {{ exp.company }}
-                  </span>
-                </h3>
-                <p class="experience__period">{{ exp.period }}</p>
-                <ul class="experience__tasks">
-                  <li v-for="(task, index) in exp.tasks" :key="index">
-                    <q-icon name="chevron_right" color="green" size="xs" />
-                    {{ task }}
-                  </li>
-                </ul>
-              </q-tab-panel>
-            </q-tab-panels>
-          </div>
+              <h3 class="experience__role">
+                {{ exp.role }}
+                <span class="experience__company">
+                  @ {{ exp.company }}
+                </span>
+              </h3>
+              <p class="experience__period">{{ exp.period }}</p>
+              <ul class="experience__tasks">
+                <li v-for="(task, index) in exp.tasks" :key="index">
+                  <q-icon name="chevron_right" color="green" size="xs" />
+                  {{ task }}
+                </li>
+              </ul>
+            </q-tab-panel>
+          </q-tab-panels>
         </div>
       </div>
-    </div>
   </section>
 </template>
 
@@ -130,6 +126,11 @@ const experiences = {
 
   @media (max-width: 768px) {
     padding: 100px 25px;
+  }
+
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
   &__content {

@@ -21,14 +21,17 @@ const navItems = [
   { label: "Experiencia", href: "#experience", number: "02" },
   { label: "Conocimientos", href: "#skills", number: "03" },
 ];
+
+const socialLinks = [
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/jorgepenadeshurtado/", icon: "linkedin.svg" },
+  { name: "GitHub", url: "https://github.com/jphur", icon: "github.svg" },
+];
 </script>
 
 <template>
   <nav class="navbar" :class="{ 'navbar--scrolled': isScrolled }">
-    <div class="container-fluid">
-      <!-- Left logo/button removed as requested -->
-
-      <div class="navbar__menu d-none d-lg-flex">
+    <div class="navbar__container">
+      <div class="navbar__left">
         <ol class="navbar__list">
           <li v-for="item in navItems" :key="item.number" class="navbar__item">
             <a :href="item.href" class="navbar__link">
@@ -37,16 +40,30 @@ const navItems = [
             </a>
           </li>
         </ol>
-        <!-- Curriculum resume button removed as requested -->
       </div>
 
-      <q-btn
-        flat
-        round
-        color="green"
-        icon="menu"
-        class="d-lg-none"
-      />
+      <div class="navbar__right">
+        <div class="navbar__socials gt-md">
+          <a
+            v-for="link in socialLinks"
+            :key="link.name"
+            :href="link.url"
+            target="_blank"
+            class="navbar__social-link"
+            :aria-label="link.name"
+          >
+            <img :src="`/svg/${link.icon}`" :alt="link.name" class="navbar__social-icon" />
+          </a>
+        </div>
+
+        <q-btn
+          flat
+          round
+          color="green"
+          icon="menu"
+          class="lt-lg"
+        />
+      </div>
     </div>
   </nav>
 </template>
@@ -67,12 +84,28 @@ const navItems = [
     box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
   }
 
-  .container-fluid {
-  height: 100%;
-  display: flex;
-  justify-content: flex-end; /* align nav items to the right */
-  align-items: center;
-  padding: 0 50px;
+  &__container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    max-width: 100%;
+
+    @media (max-width: 768px) {
+      padding: 0 25px;
+    }
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
   }
 
   &__menu {
@@ -87,6 +120,37 @@ const navItems = [
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__social-link {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.02);
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+
+  &__social-icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+    /* Restore previous color filters from FooterApp to match original design */
+    filter: brightness(0) saturate(100%) invert(81%) sepia(8%) saturate(1216%)
+      hue-rotate(167deg) brightness(92%) contrast(88%);
+    transition: filter 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    &:hover {
+      filter: brightness(0) saturate(100%) invert(75%) sepia(29%)
+        saturate(1126%) hue-rotate(105deg) brightness(101%) contrast(102%);
+    }
   }
 
   &__item {

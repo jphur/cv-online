@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted } from "vue";
 import Home from "./views/Home.vue";
-import FooterApp from "./components/FooterApp.vue";
 onMounted(() => {
   /**
    * Añade a las entradas que se ven en pantalla la clase is-inViewport
@@ -20,7 +19,6 @@ onMounted(() => {
 </script>
 <template>
   <Home/>
-  <FooterApp />
 </template>
 <style lang="scss">
 body {

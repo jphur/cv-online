@@ -30,19 +30,14 @@ onMounted(() => {
 <template>
   <div class="header">
     <div class="header__content">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12 col-lg-10">
-            <p :class="['header__greeting', 'typewriter', { 'typewriter--done': typingDone }]">{{ greeting }}</p>
-            <h1 class="header__name animate-fade-down" style="animation-delay:0.25s">
-              Jorge Penadés Hurtado
-            </h1>
-            <h2 class="header__tagline animate-fade-up" style="animation-delay:0.45s">
-              Full Stack Web developer — IA & Prompt Engineering
-            </h2>
-            <!-- CTA eliminado según solicitud (círculo borrado) -->
-          </div>
-        </div>
+      <div class="header__wrapper">
+        <p :class="['header__greeting', 'typewriter', { 'typewriter--done': typingDone }]">{{ greeting }}</p>
+        <h1 class="header__name animate-fade-down" style="animation-delay:0.25s">
+          Jorge Penadés Hurtado
+        </h1>
+        <h2 class="header__tagline animate-fade-up" style="animation-delay:0.45s">
+          Full Stack Web developer — IA & Prompt Engineering
+        </h2>
       </div>
     </div>
   </div>
@@ -60,7 +55,7 @@ onMounted(() => {
   &__content {
     width: 100%;
     padding: 0 50px;
-    text-align: center; // center the description and headings
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,6 +64,11 @@ onMounted(() => {
     @media (max-width: 768px) {
       padding: 0 25px;
     }
+  }
+
+  &__wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   &__greeting {

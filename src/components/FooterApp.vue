@@ -15,32 +15,26 @@ const socialLinks = [
 
 <template>
   <footer class="footer" id="contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="footer__content">
-              <div class="footer__social">
-                <a
-                  v-for="link in socialLinks"
-                  :key="link.name"
-                  :href="link.url"
-                  target="_blank"
-                  class="footer__social-link"
-                  :aria-label="link.name"
-                >
-                  <img
-                    :src="`/svg/${link.icon}`"
-                    :alt="link.name"
-                    class="footer__social-icon"
-                  />
-                </a>
-              </div>
-
-              <p class="footer__year">2025</p>
-          </div>
+    <div class="footer__content">
+      <div class="footer__social">
+          <a
+            v-for="link in socialLinks"
+            :key="link.name"
+            :href="link.url"
+            target="_blank"
+            class="footer__social-link"
+            :aria-label="link.name"
+          >
+            <img
+              :src="`/svg/${link.icon}`"
+              :alt="link.name"
+              class="footer__social-icon"
+            />
+          </a>
         </div>
+
+        <p class="footer__year">2025</p>
       </div>
-    </div>
   </footer>
 </template>
 
@@ -56,7 +50,7 @@ const socialLinks = [
     max-width: 760px;
     margin: 0 auto;
     text-align: center;
-  padding: 8px 30px;
+    padding: 8px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
