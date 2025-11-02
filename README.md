@@ -1,79 +1,79 @@
 # CV-ONLINE
 
-Currículum Vitae desarrollado con Vue 3, Bootstrap 5 y Swiper.js.
+A simple online Curriculum Vitae built with Vue 3, Bootstrap 5 and Swiper.js.
 
-## 🚀 Inicio rápido con Docker (Recomendado)
+## 🚀 Quick start with Docker (Recommended)
 
-### Prerrequisitos
+### Prerequisites
 
--   [Docker](https://www.docker.com/get-started) instalado
--   [Docker Compose](https://docs.docker.com/compose/install/) instalado
+-   [Docker](https://www.docker.com/get-started) installed
+-   [Docker Compose](https://docs.docker.com/compose/install/) installed
 
-### Levantar el proyecto
+### Start the project
 
 ```bash
-# Construir y ejecutar el contenedor
+# Build and run the container
 docker compose up --build
 
-# O en segundo plano
+# Or run in detached mode
 docker compose up --build -d
 ```
 
-El proyecto estará disponible en: **http://localhost:5173**
+The app will be available at: **http://localhost:5173**
 
 ### Hot Reload
 
-Los cambios en el código se reflejan automáticamente en el navegador gracias al hot reload configurado.
+Code changes are reflected automatically in the browser thanks to hot reload.
 
-### Detener el contenedor
+### Stop the container
 
 ```bash
 docker compose down
 ```
 
-## 🛠️ Desarrollo local (Alternativo)
+## 🛠️ Local development (Alternative)
 
-Si prefieres desarrollo local sin Docker:
+If you prefer to develop locally without Docker:
 
-### Prerrequisitos
+### Prerequisites
 
--   [Node.js](https://nodejs.org) (versión LTS recomendada)
--   [npm](https://www.npmjs.com) o [pnpm](https://pnpm.io)
+-   [Node.js](https://nodejs.org) (LTS version recommended)
+-   [npm](https://www.npmjs.com) or [pnpm](https://pnpm.io)
 
-### Instalación de dependencias
+### Install dependencies
 
 ```sh
 npm install
-# o
+# or
 pnpm install
 ```
 
-### Ejecuta el proyecto
+### Run the project
 
 ```sh
 npm run dev
-# o
+# or
 pnpm dev
 ```
 
-### Compilar para producción
+### Build for production
 
 ```sh
 npm run build
-# o
+# or
 pnpm build
 ```
 
-## 🏗️ Construido con
+## 🏗️ Built with
 
--   [Node.js](https://nodejs.org) - Entorno en tiempo de ejecución multiplataforma
--   [npm](https://www.npmjs.com) - Gestor de dependencias
--   [Vue 3](https://vuejs.org/) - Framework JavaScript progresivo
--   [Bootstrap 5](https://getbootstrap.com) - Framework HTML, CSS y JavaScript
--   [Swiper](https://swiperjs.com/) - Librería JavaScript para crear carruseles
--   [Docker](https://www.docker.com) - Contenedorización para desarrollo consistente
--   [Vite](https://vitejs.dev) - Build tool y dev server ultrarrápido
+-   [Node.js](https://nodejs.org) - Cross-platform runtime
+-   [npm](https://www.npmjs.com) - Package manager
+-   [Vue 3](https://vuejs.org/) - Progressive JavaScript framework
+-   [Bootstrap 5](https://getbootstrap.com) - HTML, CSS and JS framework
+-   [Swiper](https://swiperjs.com/) - Modern mobile touch slider
+-   [Docker](https://www.docker.com) - Containerization for consistent development
+-   [Vite](https://vitejs.dev) - Fast build tool and dev server
 
-## ✒️ Autor
+## ✒️ Author
 
--   **Jorge Peña Hurtado** - [jphur](https://github.com/jphur)
+-   **Jorge Penadés Hurtado** - [jphur](https://github.com/jphur)
