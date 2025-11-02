@@ -1,6 +1,5 @@
 @import './quasar.variables.scss';
 
-$dark-navy: #0a192f;
 $navy: #112240;
 $light-navy: #172a45;
 $lightest-navy: #233554;
@@ -17,10 +16,17 @@ $green-tint: #64ffda1a;
     font-family: "Roboto Mono", monospace;
 }
 
+section {
+    min-height: 100vh;
+}
+
 .q-list {
     background-color: $primary;
 }
 
+.text-bold {
+    font-weight: 700;
+} 
 
 .fadeInDown {
   animation: fadeInDown 1.5s both;
@@ -57,7 +63,7 @@ $green-tint: #64ffda1a;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
-  border-right: 2px solid $secondary;
+  border-right: 2px solid $positive;
   width: 0;
   animation:
     typing 1.5s steps(24, end) forwards,
@@ -78,6 +84,6 @@ $green-tint: #64ffda1a;
     border-color: transparent;
   }
   to {
-    border-color: $secondary;
+    border-color: $positive;
   }
 }

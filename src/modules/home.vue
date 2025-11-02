@@ -1,6 +1,6 @@
 <script setup>
 import navbar from "../components/navbar.vue";
-import Header from "./header.vue";
+import Header from "./hero.vue";
 import AboutMe from "./about-me.vue";
 import Education from "./education.vue";
 import Experience from "./experience.vue";
@@ -22,7 +22,7 @@ import Skills from "./skills.vue";
 </template>
 <style lang="scss" scoped>
 .about-education-section {
-  background-color: $dark-navy;
+  background-color: $primary;
   padding: 100px 50px;
 
   @media (max-width: 768px) {
