@@ -5,9 +5,9 @@ import "quasar/dist/quasar.css";
 import "@quasar/extras/material-icons/material-icons.css";
 
 const app = createApp(App);
-
 app.use(Quasar, {
-    config: {},
+    config: {
+        animations: "all",
+    },
 });
-
 app.mount("#app");
