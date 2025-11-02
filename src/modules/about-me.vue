@@ -1,16 +1,3 @@
-<script setup>
-const skills = [
-  "Node.js",
-  "Vue.js",
-  "MySQL / MariaDB",
-  "Prompts de IA",
-  "Python",
-  "Loopback",
-  "FastAPI",
-  "Quasar",
-];
-</script>
-
 <template>
   <div class="about-me" id="about-me">
     <h2 class="section-title">
@@ -39,24 +26,6 @@ const skills = [
             </p>
 
             <p>Me gusta cuidar los detalles y buscar soluciones limpias en cada proyecto.</p>
-
-            <ul class="about-me__skills">
-              <li v-for="skill in skills" :key="skill">
-                <q-icon name="chevron_right" color="green" size="xs" />
-                {{ skill }}
-              </li>
-            </ul>
-          </div>
-
-          <div class="about-me__image-wrapper">
-            <q-img
-              src="/images/me.jpg"
-              alt="Jorge Penadés"
-              class="about-me__image"
-              ratio="1"
-            >
-              <div class="about-me__image-overlay"></div>
-            </q-img>
         </div>
       </div>
     </div>
