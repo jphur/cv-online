@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted } from "vue";
-import Home from "./views/Home.vue";
+import Home from "./modules/home.vue";
 onMounted(() => {
   /**
    * Añade a las entradas que se ven en pantalla la clase is-inViewport

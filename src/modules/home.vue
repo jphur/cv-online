@@ -1,13 +1,13 @@
 <script setup>
-import NavigationBarApp from "../modules/NavigationBarApp.vue";
-import Header from "../modules/Header.vue";
-import AboutMe from "../modules/AboutMe.vue";
-import Education from "../modules/Education.vue";
-import Experience from "../modules/Experience.vue";
-import Skills from "../modules/Skills.vue";
+import navBar from "../components/nav-bar.vue";
+import Header from "./header.vue";
+import AboutMe from "./about-me.vue";
+import Education from "./education.vue";
+import Experience from "./experience.vue";
+import Skills from "./skills.vue";
 </script>
 <template>
-  <NavigationBarApp />
+  <navBar />
   <Header />
   <main>
     <section class="about-education-section">
