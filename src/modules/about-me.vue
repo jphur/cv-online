@@ -72,68 +72,6 @@
       }
     }
   }
-
-  &__skills {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 200px));
-    gap: 10px;
-    padding: 0;
-    margin: 20px 0 0;
-    list-style: none;
-    font-family: "Roboto Mono", monospace;
-    font-size: 13px;
-
-    li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-  }
-
-  &__image-wrapper {
-    display: none; // Ocultar imagen para simplificar layout
-
-    &::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border: 2px solid $green;
-      top: 20px;
-      left: 20px;
-      border-radius: 4px;
-      z-index: -1;
-      transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-    }
-
-    &:hover::before {
-      top: 15px;
-      left: 15px;
-    }
-
-    &:hover .about-me__image-overlay {
-      background-color: transparent;
-    }
-  }
-
-  &__image {
-    border-radius: 4px;
-    filter: grayscale(100%);
-    transition: filter 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-
-    &:hover {
-      filter: grayscale(0%);
-    }
-  }
-
-  &__image-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(100, 255, 218, 0.2);
-    border-radius: 4px;
-    transition: background-color 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-  }
 }
 
 .section-title {
