@@ -4,16 +4,13 @@ import vue from "@vitejs/plugin-vue";
 import { quasar, transformAssetUrls } from "@quasar/vite-plugin";
 
 export default defineConfig({
-    plugins: [vue({ template: { transformAssetUrls } }), quasar()],
+    plugins: [vue({ template: { transformAssetUrls } }), quasar({ sassVariables: "@/assets/quasar.variables.scss" })],
     resolve: { alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) } },
     css: {
         preprocessorOptions: {
             scss: {
                 api: "modern-compiler",
-                additionalData: (content, filePath) => {
-                    if (filePath.includes("style.scss") || filePath.includes("quasar.variables.scss")) return content;
-                    return `@use "@/assets/style.scss" as *;\n@import "@/assets/quasar.variables.scss";\n${content}`;
-                },
+                additionalData: '@import "@/assets/style.scss";',
             },
         },
     },
