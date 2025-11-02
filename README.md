@@ -1,46 +1,35 @@
 # CV-ONLINE
 
-A simple online Curriculum Vitae built with Vue 3, Bootstrap 5 and Swiper.js.
+A lightweight, responsive online Curriculum Vitae built with Vue 3 and Quasar.  
+Designed for easy local development (with or without Docker) and fast hot-reload during development.
 
-## 🚀 Quick start with Docker (Recommended)
+Key features
 
-### Prerequisites
+-   Vue 3 + Quasar for UI components and layout.
+-   Sass-powered theming in [src/assets/quasar.variables.scss](src/assets/quasar.variables.scss) and [src/assets/style.scss](src/assets/style.scss).
+-   Simple component structure under [src/modules](src/modules) and [src/components](src/components).
+-   Docker-ready for reproducible dev environments.
 
--   [Docker](https://www.docker.com/get-started) installed
--   [Docker Compose](https://docs.docker.com/compose/install/) installed
+Quick start (Docker)
 
-### Start the project
+1. Build and run the container:
 
-```bash
-# Build and run the container
+```sh
 docker compose up --build
-
-# Or run in detached mode
+# or detached
 docker compose up --build -d
 ```
 
-The app will be available at: **http://localhost:5173**
+2. Open http://localhost:5173
 
-### Hot Reload
+Files used by Docker:
 
-Code changes are reflected automatically in the browser thanks to hot reload.
+-   [docker-compose.yml](docker-compose.yml)
+-   [Dockerfile](Dockerfile)
 
-### Stop the container
+Local development
 
-```bash
-docker compose down
-```
-
-## 🛠️ Local development (Alternative)
-
-If you prefer to develop locally without Docker:
-
-### Prerequisites
-
--   [Node.js](https://nodejs.org) (LTS version recommended)
--   [npm](https://www.npmjs.com) or [pnpm](https://pnpm.io)
-
-### Install dependencies
+1. Install dependencies:
 
 ```sh
 npm install
@@ -48,7 +37,7 @@ npm install
 pnpm install
 ```
 
-### Run the project
+2. Start dev server:
 
 ```sh
 npm run dev
@@ -56,7 +45,9 @@ npm run dev
 pnpm dev
 ```
 
-### Build for production
+The Vite dev server entry is [src/main.js](src/main.js) which mounts the app defined in [src/App.vue](src/App.vue).
+
+Build for production
 
 ```sh
 npm run build
@@ -64,16 +55,15 @@ npm run build
 pnpm build
 ```
 
-## 🏗️ Built with
+Project structure (high level)
 
--   [Node.js](https://nodejs.org) - Cross-platform runtime
--   [npm](https://www.npmjs.com) - Package manager
--   [Vue 3](https://vuejs.org/) - Progressive JavaScript framework
--   [Bootstrap 5](https://getbootstrap.com) - HTML, CSS and JS framework
--   [Swiper](https://swiperjs.com/) - Modern mobile touch slider
--   [Docker](https://www.docker.com) - Containerization for consistent development
--   [Vite](https://vitejs.dev) - Fast build tool and dev server
+-   [index.html](index.html) — app entry
+-   [package.json](package.json) — scripts & deps
+-   [src/](src) — Vue application source
+    -   [src/main.js](src/main.js)
+    -   [src/App.vue](src/App.vue)
+    -   [src/modules/](src/modules) — main sections (e.g. [`Home`](src/modules/home.vue))
 
-## ✒️ Author
+Author
 
--   **Jorge Penadés Hurtado** - [jphur](https://github.com/jphur)
+-   Jorge Penadés Hurtado — https://github.com/jphur
