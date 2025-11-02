@@ -62,14 +62,12 @@ const navItems = [
         position: fixed;
         top: 0;
         width: 100%;
-        height: 80px;
-        background-color: rgba(10, 25, 47, 0.85);
-        backdrop-filter: blur(10px);
+        height: 4.5rem;
+        background-color: $primary;
+        backdrop-filter: blur(.6rem);
         z-index: 100;
-        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 
         &--scrolled {
-            height: 70px;
             box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
         }
 

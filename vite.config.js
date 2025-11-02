@@ -11,8 +11,8 @@ export default defineConfig({
             scss: {
                 api: "modern-compiler",
                 additionalData: (content, filePath) => {
-                    if (filePath.includes("style.scss")) return content;
-                    return `@use "@/assets/style.scss" as *;\n${content}`;
+                    if (filePath.includes("style.scss") || filePath.includes("quasar.variables.scss")) return content;
+                    return `@use "@/assets/style.scss" as *;\n@import "@/assets/quasar.variables.scss";\n${content}`;
                 },
             },
         },
