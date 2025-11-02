@@ -1,6 +1,5 @@
 @import './quasar.variables.scss';
 
-//colors
 $dark-navy: #0a192f;
 $navy: #112240;
 $light-navy: #172a45;
@@ -8,7 +7,7 @@ $lightest-navy: #233554;
 $slate: #8892b0;
 $light-slate: #a8b2d1;
 $lightest-slate: #ccd6f6;
-$green-tint: rgba(100, 255, 218, 0.1);
+$green-tint: #64ffda1a;
 
 * {
     margin:0;
@@ -20,4 +19,65 @@ $green-tint: rgba(100, 255, 218, 0.1);
 
 .q-list {
     background-color: $primary;
-} 
+}
+
+
+.fadeInDown {
+  animation: fadeInDown 1.5s both;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp 1.5s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.typewriter {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid $secondary;
+  width: 0;
+  animation:
+    typing 1.5s steps(24, end) forwards,
+    blink 0.9s step-end infinite alternate;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 24ch;
+  }
+}
+
+@keyframes blink {
+  from {
+    border-color: transparent;
+  }
+  to {
+    border-color: $secondary;
+  }
+}

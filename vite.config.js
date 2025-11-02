@@ -4,7 +4,7 @@ import vue from "@vitejs/plugin-vue";
 import { quasar, transformAssetUrls } from "@quasar/vite-plugin";
 
 export default defineConfig({
-    plugins: [vue({ template: { transformAssetUrls } }), quasar({ sassVariables: "@/assets/quasar.variables.scss" })],
+    plugins: [vue({ template: { transformAssetUrls } }), quasar({ sassVariables: "@/assets/quasar.variables.scss", animation: "all" })],
     resolve: { alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) } },
     css: {
         preprocessorOptions: {
