@@ -1,5 +1,5 @@
 <script setup>
-import navBar from "../components/nav-bar.vue";
+import navbar from "../components/navbar.vue";
 import Header from "./header.vue";
 import AboutMe from "./about-me.vue";
 import Education from "./education.vue";
@@ -7,7 +7,7 @@ import Experience from "./experience.vue";
 import Skills from "./skills.vue";
 </script>
 <template>
-  <navBar />
+  <navbar />
   <Header />
   <main>
     <section class="about-education-section">

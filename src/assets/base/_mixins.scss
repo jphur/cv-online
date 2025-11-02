@@ -1,5 +1,0 @@
-@mixin mv($mesure: 480px) {
-    @media screen and (max-width: $mesure) {
-        @content;
-    }
-}

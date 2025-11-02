@@ -7,9 +7,7 @@ import "@quasar/extras/material-icons/material-icons.css";
 const app = createApp(App);
 
 app.use(Quasar, {
-    config: {
-        // global Quasar config if needed
-    },
+    config: {},
 });
 
 app.mount("#app");

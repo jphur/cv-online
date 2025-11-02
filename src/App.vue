@@ -20,8 +20,3 @@ onMounted(() => {
 <template>
   <Home/>
 </template>
-<style lang="scss">
-body {
-  background-color: $white;
-}
-</style>
