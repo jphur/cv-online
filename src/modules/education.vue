@@ -89,7 +89,6 @@
                 border-color: $green;
             }
 
-            // Línea vertical que conecta los puntos
             :deep(.q-timeline__dot::before) {
                 background: $green;
                 opacity: 0.3;
