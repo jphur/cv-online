@@ -68,29 +68,24 @@
             padding: 100px 25px;
         }
 
-        @media (max-width: 992px) {
-            &__grid {
-                grid-template-columns: repeat(2, minmax(240px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            &__grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         &__container {
             max-width: 1000px;
             margin: 0 auto;
         }
 
         &__grid {
-            /* Use grid so cards align properly in rows (3 columns on desktop, responsive to 1 column on mobile) */
             display: grid;
             grid-template-columns: repeat(3, minmax(280px, 320px));
             justify-content: center;
             gap: 30px;
+
+            @media (max-width: 992px) {
+                grid-template-columns: repeat(2, minmax(240px, 1fr));
+            }
+
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
+            }
         }
 
         &__category {
@@ -98,8 +93,6 @@
             padding: 30px;
             border-radius: 4px;
             transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-
-            /* let grid define the width; remove fixed width */
 
             &:hover {
                 transform: translateY(-5px);
